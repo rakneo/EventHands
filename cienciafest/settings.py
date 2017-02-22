@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+import dj_database_url
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -90,13 +92,16 @@ WSGI_APPLICATION = 'cienciafest.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd5qaei49q8kn4k',
-        'USER': 'bshlvhrhxqbhtss',
-        'PASSWORD': '4adc88ea1be06dd36441dd79c0c2c9b79f5b94024602ea218b59e3470ed236ad',
-        'HOST': 'ec2-54-163-246-165.compute-1.amazonaws.com',
+        'NAME': 'Registration',
+        'USER': 'postgres',
+        'PASSWORD': 'rakmama123',
+        'HOST': '127.0.0.1',
         'PORT': '5432'
     }
 }
+
+
+
 
 
 # Password validation
@@ -143,6 +148,11 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
