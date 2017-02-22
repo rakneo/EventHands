@@ -90,9 +90,10 @@ WSGI_APPLICATION = 'cienciafest.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Registration',
-        'USER': 'postgres',
-        'PASSWORD': 'rakmama123',
+        'NAME': 'd5qaei49q8kn4k',
+        'USER': 'bshlvhrhxqbhtss',
+        'PASSWORD': '4adc88ea1be06dd36441dd79c0c2c9b79f5b94024602ea218b59e3470ed236ad',
+        'HOST': 'ec2-54-163-246-165.compute-1.amazonaws.com',
         'PORT': '5432'
     }
 }
