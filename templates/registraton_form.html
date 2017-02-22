@@ -1,0 +1,28 @@
+{% extends "register_base.html" %}
+{% load crispy_forms_tags%}
+{% block base_body %}
+ <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-6 mx-auto">
+          <span> </span>
+      </div>
+    </div>
+    <div class="row">
+  <div class="col-xl-6 mx-auto">
+      &nbsp;
+    <div class="card mx-auto">
+         <div class="card-header">
+    Candidate Registration
+         </div>
+        <div class="card-block">
+      <form method="post">
+          {{form|crispy }}
+       {% csrf_token %}
+          <input class="btn btn-success col-sm-4 col-md-4 mx-auto" type="submit" name="reg_btn" value="Register">
+      </form>
+  </div>
+  </div>
+</div>
+    </div>
+ </div>
+{% endblock %}

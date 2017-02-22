@@ -1,0 +1,43 @@
+{% extends 'register_base.html' %}
+{% block base_body %}
+<div class="container-fluid">
+<div row>
+    &nbsp;
+    <div class="col-md-6 mx-auto">
+        <div class="card">
+  <div class="card-block">
+    <h4 class="card-title">{{ registerdesk.candidate_name }}</h4>
+      <br>
+    <h6 class="card-subtitle mb-2 text-muted">{{ registerdesk.candidate_college }}</h6>
+      <br>
+    <h6 class="card-subtitle mb-2 text-muted">Email: {{ registerdesk.candidate_email }}</h6>
+      <br>
+    <h6 class="card-subtitle mb-2 text-muted">Contact No: {{ registerdesk.candidate_contact_no }}</h6>
+      <br>
+    <h6 class="card-subtitle mb-2 text-muted"> Events Registered: | {% for value in registerdesk.events_enrolling %}
+              {% if value == '1' %}
+                  Science Quiz
+              {% elif value == '2' %}
+                  Science Model
+              {% elif value == '3' %}
+                  Paper Presentation
+              {% elif value == '4' %}
+                  Spell Bee
+              {% elif value == '5' %}
+                  Connections
+              {% elif value == '6' %}
+                  Poster Painting
+              {% elif value == '7' %}
+                  Short Film
+              {% endif %}
+            |
+            {% endfor %}
+    </h6>
+    <br>
+    <a href="{% url 'participant_update' registerdesk.id %}" class="btn btn-warning float-right">Edit</a>
+  </div>
+</div>
+    </div>
+</div>
+</div>
+{% endblock %}

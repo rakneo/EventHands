@@ -1,0 +1,17 @@
+{% extends "login_base.html" %}
+{% block loginbasebody %}
+<div class="container">
+	<div class="row text-center">
+        <div class="col-sm-6 col-sm-offset-3 mx-auto">
+        <br><br> <h2 style="color:#0fad00">Success</h2>
+        <img src="http://osmhotels.com//assets/check-true.jpg">
+        <h3>Dear, Candidate </h3>
+        <p style="font-size:20px;color:#5C5C5C;">You Have Successfully registered welcome to ciencia fest</p>
+        <a href="{% url 'register' %}" class="btn btn-success">Return to Registration page</a>
+    <br><br>
+        </div>
+        </div>
+</div>
+{% endblock %}
+
+

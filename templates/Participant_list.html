@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block base_body %}
+<div class="container">
+&nbsp;
+<div class="row">
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th>S.no</th>
+      <th>Name</th>
+      <th>College</th>
+      <th class="text-center">Events</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for participant in all_participants %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+        <td>{{ participant.candidate_name }}</td>
+        <td>{{ participant.candidate_college }}</td>
+        <td>|{% for value in participant.events_enrolling %}
+              {% if value == '1' %}
+                  Science Quiz
+              {% elif value == '2' %}
+                  Science Model
+              {% elif value == '3' %}
+                  Paper Presentation
+              {% elif value == '4' %}
+                  Spell Bee
+              {% elif value == '5' %}
+                  Connections
+              {% elif value == '6' %}
+                  Poster Painting
+              {% elif value == '7' %}
+                  Short Film
+              {% endif %}
+           |
+            {% endfor %}
+              </td>
+        <td><a href="{% url 'participant_detail' participant.id %}" class="btn btn-sm btn-primary">Details</a></td>
+    </tr>
+  {%  endfor %}
+  </tbody>
+</table>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block base_body %}
+
+<div class="container-fluid">
+&nbsp;
+ <div class="row">
+     {% for event in all_events %}
+         <div class="col-xl-3 col-xs-9 col-md-8 mx-auto">
+         <div class="card-group">
+             <div class="card event-card">
+              <img class="card-img-top" src="{{ event.thumb_url }}" alt="Card image cap" height="300" width="300">
+               <div class="card-block">
+               <h4 class="card-title">{{event.events}}</h4>
+               <a href="{% url 'eventdetail' event.id %}" class="btn btn-sm btn-primary">View Details</a>
+                        {% if event.event_isStarted %}
+                           <span class="badge badge-warning float-right">In Progress</span>
+                   {% elif event.event_completed %}
+                            <span class="badge badge-success float-right ">Completed</span>
+                    {% else %}
+                            <span class="badge badge-danger float-right ">Not Started</span>
+                   {% endif %}
+               </div>
+           </div>
+         </div>
+         </div>
+     {% endfor %}
+ </div>
+</div>
+{% endblock %}

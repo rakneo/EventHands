@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block base_body %}
+<div class="container-fluid">
+&nbsp;
+    <div class="row">
+        <div class="col-xl-3 col-md-12 col-lg-4">
+
+          <div class="card">
+  <img class="card-img-top" src="{{ eventlist.thumb_url }}" alt="Card image cap">
+              <div class="card-block"><h1 class="display-5 text-center">{{ eventlist.events }}</h1></div>
+  <div class="card-block mx-auto">
+            {% if eventlist.event_isStarted %}
+       <h5><span class="badge badge-warning">Event In Progress</span></h5>
+             {% elif eventlist.event_completed%}
+      <h5><span class="badge badge-success">Event Complete</span></h5>
+            {% else %}
+       <h5><span class="badge badge-danger">Event Not Started</span></h5>
+      {% endif %}
+
+  </div>
+</div>
+        </div>
+        <div class="col-md-7">
+        <table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>NAME</th>
+      <th>COLLEGE</th>
+    </tr>
+  </thead>
+  <tbody>
+              {% for cand in registerdesk %}
+                  {% with forloop.counter as cand_counter %}
+                 {% for cand_event in cand.events_enrolling %}
+                     {% if cand_event == eventlist.id|stringformat:"i" %}
+                             <tr>
+                                 <th scope="row">{{ cand_counter }}</th>
+                                 <td>{{ cand.candidate_name }}</td>
+                                 <td>{{ cand.candidate_college }}</td>
+                             </tr>
+                     {% endif %}
+                 {% endfor %}
+                  {% endwith %}
+            {% endfor %}
+
+  </tbody>
+</table>
+
+
+        </div>
+    </div>
+</div>
+{% endblock %}
