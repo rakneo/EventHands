@@ -35,7 +35,7 @@
                  {% for cand_event in cand.events_enrolling %}
                      {% if cand_event == eventlist.id|stringformat:"i" %}
                              <tr>
-                                 <th scope="row">{{ cand_counter }}</th>
+                                 <th scope="row">{{ count }}</th>
                                  <td>{{ cand.candidate_name }}</td>
                                  <td>{{ cand.candidate_college }}</td>
                              </tr>

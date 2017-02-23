@@ -6,6 +6,8 @@ from django.views.generic import CreateView,DetailView,UpdateView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.core.urlresolvers import reverse_lazy
+import itertools
+import functools
 
 # Create your views here.
 decorator = [login_required]
@@ -31,7 +33,7 @@ class EventsDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(EventsDetail, self).get_context_data(**kwargs)
         context['registerdesk'] = RegisterDesk.objects.all()
-
+        context['count'] = functools.partial(next, itertools.count(1))
         return context
 
 
@@ -92,4 +94,11 @@ class ParticipantUpdate(UpdateView):
 
     def get_success_url(self):
         return reverse_lazy('update_success')
+
+
+
+
+
+
+
 
