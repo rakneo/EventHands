@@ -35,6 +35,7 @@ class EventList(models.Model):
     thumb_url = models.CharField(max_length=5000, default=' ')
     event_isStarted = models.BooleanField(default=False)
     event_completed = models.BooleanField(default=False)
+    event_time = models.CharField(max_length=50, null=True)
 
     def __str__(self):
         return str(self.events)

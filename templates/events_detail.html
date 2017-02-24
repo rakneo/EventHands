@@ -7,7 +7,10 @@
 
           <div class="card">
   <img class="card-img-top" src="{{ eventlist.thumb_url }}" alt="Card image cap">
-              <div class="card-block"><h1 class="display-5 text-center">{{ eventlist.events }}</h1></div>
+              <div class="card-block"><h1 class="display-5 text-center">{{ eventlist.events }}</h1>
+              <p class="text-center text-primary">Event Timing: {{ eventlist.event_time }}</p>
+              </div>
+
   <div class="card-block mx-auto">
             {% if eventlist.event_isStarted %}
        <h5><span class="badge badge-warning">Event In Progress</span></h5>
@@ -27,23 +30,24 @@
       <th>#</th>
       <th>NAME</th>
       <th>COLLEGE</th>
+      <th>CONTACT</th>
     </tr>
   </thead>
   <tbody>
-              {% for cand in registerdesk %}
+                  {% for cand in registerdesk %}
                   {% with forloop.counter as cand_counter %}
-                 {% for cand_event in cand.events_enrolling %}
+                  {% for cand_event in cand.events_enrolling %}
                      {% if cand_event == eventlist.id|stringformat:"i" %}
                              <tr>
                                  <th scope="row">{{ count }}</th>
                                  <td>{{ cand.candidate_name }}</td>
                                  <td>{{ cand.candidate_college }}</td>
+                                 <td>{{ cand.candidate_contact_no }}</td>
                              </tr>
                      {% endif %}
-                 {% endfor %}
+                  {% endfor %}
                   {% endwith %}
             {% endfor %}
-
   </tbody>
 </table>
 
