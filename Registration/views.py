@@ -2,7 +2,7 @@ from django import template
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .models import RegisterDesk, EventList
-from django.views.generic import CreateView,DetailView,UpdateView
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.core.urlresolvers import reverse_lazy
@@ -72,6 +72,11 @@ def participant_list(request):
 
     all_participants = RegisterDesk.objects.all().order_by('candidate_college')
     return render(request, 'Participant_list.html', {'all_participants': all_participants})
+
+
+class Participant_del(DeleteView):
+    model = RegisterDesk
+    success_url = reverse_lazy('participant')
 
 
 @method_decorator(decorator, name='dispatch')

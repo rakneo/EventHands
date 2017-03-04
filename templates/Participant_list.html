@@ -40,6 +40,14 @@
             {% endfor %}
               </td>
         <td><a href="{% url 'participant_detail' participant.id %}" class="btn btn-sm btn-primary">Details</a></td>
+        <td>
+            <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                <form method="post" action="{% url 'participant_delete' participant.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-secondary btn-danger btn-sm"><i class="fa fa-trash-o" aria-hidden="true" ></i></button>
+                </form>
+            </div>
+        </td>
     </tr>
   {%  endfor %}
   </tbody>
