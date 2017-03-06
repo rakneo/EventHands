@@ -12,7 +12,7 @@ import os
 from django.core.wsgi import get_wsgi_application
 from whitenoise.django import DjangoWhiteNoise
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "cienciafest.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "emt.settings")
 
 application = get_wsgi_application()
 
