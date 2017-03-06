@@ -1,9 +1,9 @@
-from .models import SitesConfig
+from .models import SiteConfigs
 
 
 def config(request):
 
-    configs = SiteConfig.objects.all()
+    configs = SiteConfigs.objects.all()
     return {
         'config': configs
         }
