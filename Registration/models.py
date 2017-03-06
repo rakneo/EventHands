@@ -48,4 +48,9 @@ class PaperPresentation(models.Model):
         return str(self.topic)
 
 
+class SiteConfig(models.Model):
+    site_title = models.CharField(max_length=300, default="EMT")
+
+    def __str__(self):
+        return str(self.site_title)
 

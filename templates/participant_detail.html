@@ -1,4 +1,9 @@
 {% extends 'register_base.html' %}
+{% block title %}
+ {% for title in configs %}
+{{ title }}
+ {% endfor %}
+{% endblock %}
 {% block base_body %}
 <div class="container-fluid">
 <div row>

@@ -12,6 +12,6 @@ urlpatterns = [
     url(r'participant/(?P<pk>[0-9]+)/$', ParticipantDetail.as_view(), name='participant_detail'),
     url(r'participant/update/(?P<pk>[0-9]+)/$', ParticipantUpdate.as_view(), name='participant_update'),
     url(r'participant/delete/(?P<pk>[0-9]+)/$',Participant_del.as_view(), name='participant_delete'),
-    url(r'^participant/update/success$', updatesuccesspage, name='update_success')
-
+    url(r'^participant/update/success$', updatesuccesspage, name='update_success'),
+    url(r'^main/settings$', Settings, name='settings')
 ]

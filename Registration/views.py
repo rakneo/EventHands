@@ -1,7 +1,7 @@
 from django import template
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from .models import RegisterDesk, EventList
+from .models import RegisterDesk, EventList, SiteConfig
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -102,6 +102,12 @@ class ParticipantUpdate(UpdateView):
 
 
 
+# Settings
+
+
+def Settings(request):
+
+    return render(request, 'settings_page.html')
 
 
 

@@ -1,4 +1,9 @@
 {% extends 'login_base.html' %}
+{% block title %}
+ {% for title in configs %}
+{{ title }}
+ {% endfor %}
+{% endblock %}
 {% load staticfiles %}
 {% block loginbasebody %}
 <div class="container">
