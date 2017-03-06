@@ -1,1 +1,1 @@
-web: gunicorn cienciafest.wsgi
+web: gunicorn emt.wsgi
