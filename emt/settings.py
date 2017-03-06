@@ -145,9 +145,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
-#DATABASES['default'] = dj_database_url.config()
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+DATABASES['default'] = dj_database_url.config()
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
