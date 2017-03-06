@@ -75,6 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'Registration.context_processors.config',
             ],
         },
     },
@@ -146,6 +147,7 @@ STATICFILES_DIRS = (
 )
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 DATABASES['default'] = dj_database_url.config()
 
 

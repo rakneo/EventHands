@@ -15,7 +15,10 @@
 
 <nav class="navbar sticky-top navbar-inverse bg-success">
     <div class="container">
-        <a class="navbar-brand mx-auto" href="#">Ciencia Fest '17</a>
+        <a class="navbar-brand mx-auto" href="#">
+            {% for title in config %}
+          {{ title }}
+      {% endfor %}</a>
     </div>
     </div>
 </nav>
