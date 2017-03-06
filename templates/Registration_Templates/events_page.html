@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'Registration_App/base.html' %}
 
 {% block base_body %}
 
@@ -12,7 +12,7 @@
               <img class="card-img-top" src="{{ event.thumb_url }}" alt="Card image cap" height="300" width="300">
                <div class="card-block">
                <h4 class="card-title">{{event.events}}</h4>
-               <a href="{% url 'eventdetail' event.id %}" class="btn btn-sm btn-primary">View Details</a>
+               <a href="{% url 'Registration:eventdetail' event.id %}" class="btn btn-sm btn-primary">View Details</a>
                         {% if event.event_isStarted %}
                            <span class="badge badge-warning float-right">In Progress</span>
                    {% elif event.event_completed %}

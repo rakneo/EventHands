@@ -1,4 +1,4 @@
-{% extends 'register_base.html' %}
+{% extends 'Registration_App/register_base.html' %}
 {% block base_body %}
 <div class="container-fluid">
 <div row>
@@ -34,7 +34,7 @@
             {% endfor %}
     </h6>
     <br>
-    <a href="{% url 'participant_update' registerdesk.id %}" class="btn btn-warning float-right">Edit</a>
+    <a href="{% url 'Registration:participant_update' registerdesk.id %}" class="btn btn-warning float-right">Edit</a>
   </div>
 </div>
     </div>

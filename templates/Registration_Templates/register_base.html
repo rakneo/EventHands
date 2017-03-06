@@ -7,8 +7,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+<link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
 </head>
 <body>
 <!-- navbar -->
@@ -19,7 +19,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand" href="#">
-      {% for title in config %}
+            {% for title in config %}
           {{ title }}
       {% endfor %}
   </a>
@@ -27,20 +27,32 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-md-0">
         <li class="nav-item active">
-        <a class="nav-link" href="{% url 'events' %}">Events<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'Registration:events' %}">Events<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-        <a class="nav-link" href="{% url 'participant' %}">Participants<span class="sr-only">(current)</span></a>
-        </li>
+        <a class="nav-link" href="{% url 'Registration:participant' %}">Participants<span class="sr-only">(current)</span></a>
     </ul>
        <div class="navbar-nav float-xs-right">
                            <li class="nav-item active">
-        <a class="nav-link" href="{% url 'register' %}"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a>
-       </div>
+        <a class="nav-link" href="{% url 'Registration:register' %}"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a>
+
+        </li>
+                                   <li class="nav-item active">
+        <a class="nav-link" href="{% url 'logout' %}"> <i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+        </li>
+
+
+           </div>
+
   </div>
     </div>
     </div>
+
+
 </nav>
+
+
+
 <!-- navbar end -->
 
  {% block base_body %}
@@ -48,7 +60,7 @@
  {% endblock %}
 
 <!-- Scripts -->
-{% include 'tracking.html' %}
+{% include 'Registration_App/tracking.html' %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>

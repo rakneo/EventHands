@@ -17,18 +17,18 @@ decorator = [login_required]
 class RegisterView(CreateView):
     model = RegisterDesk
     fields = ['candidate_name', 'candidate_college', 'candidate_email', 'candidate_contact_no', 'events_enrolling']
-    template_name = 'registraton_form.html'
+    template_name = 'Registration_Templates/registraton_form.html'
 
 
 
 def EventsView(request):
     all_events = EventList.objects.all()
-    return render(request, 'events_page.html', {'all_events': all_events})
+    return render(request, 'Registration_Templates/events_page.html', {'all_events': all_events})
 
 
 class EventsDetail(DetailView):
     model = EventList
-    template_name = 'events_detail.html'
+    template_name = 'Registration_Templates/events_detail.html'
 
     def get_context_data(self, **kwargs):
         context = super(EventsDetail, self).get_context_data(**kwargs)
@@ -51,27 +51,27 @@ def loginview(request):
                 if user.is_active:
                     login(request, user)
                     return redirect('register')
-    return render(request, 'login_form.html')
+    return render(request, 'Registration_Templates/login_form.html')
 
 
 def admin_logout(request):
     if request.user.is_authenticated:
         logout(request)
-        return redirect('login')
+        return reverse_lazy('Registration:login')
 
 
 def successpage(request):
-    return render(request, 'Register_success_page.html')
+    return render(request, 'Registration_Templates/Register_success_page.html')
 
 
 def updatesuccesspage(request):
-    return render(request, 'update_success.html')
+    return render(request, 'Registration_Templates/update_success.html')
 
 
 def participant_list(request):
 
     all_participants = RegisterDesk.objects.all().order_by('candidate_college')
-    return render(request, 'Participant_list.html', {'all_participants': all_participants})
+    return render(request, 'Registration_Templates/Participant_list.html', {'all_participants': all_participants})
 
 
 class Participant_del(DeleteView):
@@ -82,7 +82,7 @@ class Participant_del(DeleteView):
 @method_decorator(decorator, name='dispatch')
 class ParticipantDetail(DetailView):
     model = RegisterDesk
-    template_name = 'participant_detail.html'
+    template_name = 'Registration_Templates/participant_detail.html'
 
     def get_context_data(self, **kwargs):
         context = super(ParticipantDetail, self).get_context_data()
@@ -95,7 +95,7 @@ class ParticipantDetail(DetailView):
 class ParticipantUpdate(UpdateView):
     model = RegisterDesk
     fields = ['candidate_name', 'candidate_college', 'candidate_email', 'candidate_contact_no', 'events_enrolling']
-    template_name = 'update_form.html'
+    template_name = 'Registration_Templates/update_form.html'
 
     def get_success_url(self):
         return reverse_lazy('update_success')

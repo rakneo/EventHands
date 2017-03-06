@@ -1,4 +1,4 @@
-{% extends "login_base.html" %}
+{% extends "Registration_Templates/login_base.html" %}
 {% block loginbasebody %}
 <div class="container">
 	<div class="row text-center">
@@ -7,7 +7,7 @@
         <img src="http://osmhotels.com//assets/check-true.jpg">
         <h3>Dear, Candidate </h3>
         <p style="font-size:20px;color:#5C5C5C;">You Have Successfully registered welcome to ciencia fest</p>
-        <a href="{% url 'register' %}" class="btn btn-success">Return to Registration page</a>
+        <a href="{% url 'Registration:register' %}" class="btn btn-success">Return to Registration page</a>
     <br><br>
         </div>
         </div>
