@@ -1,4 +1,4 @@
-from .models import SiteConfig
+from .models import SitesConfig
 
 
 def config(request):
