@@ -46,7 +46,9 @@ class PaperPresentation(models.Model):
 
     def __str__(self):
         return str(self.topic)
-class SiteConfig(models.Model):
+
+
+class SiteConfigs(models.Model):
 
     site_title = models.CharField(max_length=300,default='Event Management Tool')
 
