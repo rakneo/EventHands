@@ -41,9 +41,9 @@ class EventList(models.Model):
         return str(self.events)
 
 
-class SiteConfigs(models.Model):
+class SiteSettings(models.Model):
 
-    site_title = models.CharField(max_length=300,default='Event Management Tool')
+    site_title = models.CharField(max_length=300, default='Event Management Tool')
 
     def __str__(self):
         return  str(self.site_title)
